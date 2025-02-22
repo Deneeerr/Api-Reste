@@ -1,0 +1,118 @@
+                 body {
+                    background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0d3ef048-d33f-4c3d-b0ca-e7ef0282ba9b/de5amab-3f60a288-a04f-48d6-b463-c3b0ba818d26.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBkM2VmMDQ4LWQzM2YtNGMzZC1iMGNhLWU3ZWYwMjgyYmE5YlwvZGU1YW1hYi0zZjYwYTI4OC1hMDRmLTQ4ZDYtYjQ2My1jM2IwYmE4MThkMjYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JR55-nEvJJBw-uJSKql1PqFEJbj5A9Y0XCo5FooY2OA') no-repeat center center fixed;
+                    background-size: cover;
+                    font-family: 'Arial', sans-serif;
+                    color: #fff;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                
+                .container {
+                    background: rgba(0, 0, 0, 0.8);
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    max-width: 1200px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                
+                h1 {
+                    margin-bottom: 20px;
+                }
+                
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                
+                label, input, select, button {
+                    margin: 5px 0;
+                    width: 100%;
+                }
+                
+                button {
+                    padding: 10px;
+                    background-color: #333;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                button:hover {
+                    background-color: #555;
+                }
+                
+                .results {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr); /* 5 cartas por linha */
+                    gap: 15px;
+                    margin-top: 20px;
+                    justify-items: center; /* Garante o alinhamento central */
+                }
+                
+                .card {
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 10px;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: left;
+                    justify-content: space-between;
+                    box-sizing: border-box;
+                    width: 100%;
+                    max-width: 220px; /* Ajuste no tamanho das cartas */
+                    min-height: 400px; /* Altura mínima para as cartas */
+                    height: 400px; /* Fixando a altura para todas as cartas */
+                    overflow: hidden; /* Garante que nenhum conteúdo ultrapasse os limites da carta */
+                }
+                
+                .card img {
+                    width: 100%; /* A imagem ocupa toda a largura disponível */
+                    height: auto; /* Garante que a imagem tenha a proporção correta */
+                    max-height: 180px; /* Limita a altura das imagens */
+                    border-radius: 5px;
+                }
+                
+                .card .card-title {
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 10px 0;
+                    word-wrap: break-word; /* Garante que o texto quebre e se ajuste ao tamanho da carta */
+                    overflow: hidden; /* Esconde qualquer conteúdo extra que ultrapasse os limites */
+                    text-overflow: ellipsis; /* Coloca '...' se o texto for muito grande */
+                }
+                
+                .card p {
+                    margin: 5px 0;
+                    text-align: justify;
+                }
+                
+                .card .card-info {
+                    margin-top: 10px;
+                }
+                
+                .card .card-actions {
+                    margin-top: 10px;
+                }
+                
+                .card-actions button {
+                    padding: 8px;
+                    width: 100%;
+                    background-color: #333;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .card-actions button:hover {
+                    background-color: #555;
+                }
+                
