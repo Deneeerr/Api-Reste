@@ -26,7 +26,12 @@ if (isset($_POST['search']) || isset($_POST['add_card'])) {
     $search_results = searchCards($query);
 }
 
+if (!isset($_SESSION['extra_deck'])) {
+    $_SESSION['extra_deck'] = [];
+}
+
 $deck = $_SESSION['deck'];
+$extra_deck = $_SESSION['extra_deck'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,8 +95,8 @@ $deck = $_SESSION['deck'];
             justify-content: space-between;
             box-sizing: border-box;
             width: 120px;
-            min-height: 400px;
-            height: 400px;
+            min-height: 300px;
+            height: 300px;
             overflow: hidden;
         }
         .card img {
@@ -109,13 +114,6 @@ $deck = $_SESSION['deck'];
             word-wrap: break-word;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-        .card p {
-            margin: 5px 0;
-            text-align: justify;
-        }
-        .card .card-info {
-            margin-top: 10px;
         }
         .card .card-actions {
             margin-top: 10px;
@@ -142,8 +140,8 @@ $deck = $_SESSION['deck'];
             justify-content: space-between;
             box-sizing: border-box;
             width: 120px;
-            min-height: 400px;
-            height: 400px;
+            min-height: 200px;
+            height: 200px;
             overflow: hidden;
 
         }
@@ -185,11 +183,22 @@ $deck = $_SESSION['deck'];
                     <div class="card">
                         <img src="<?= $card['card_images'][0]['image_url'] ?>" alt="<?= $card['name'] ?>">
                         <div class="card-title"><?= $card['name'] ?></div>
-                        <div class="card-info">
-                            <p><strong>Tipo:</strong> <?= $card['type'] ?></p>
-                            <p><strong>Atributo:</strong> <?= $card['attribute'] ?? 'N/A' ?></p>
-                            <p><strong>Nível:</strong> <?= $card['level'] ?? 'N/A' ?></p>
+                        <div class="card-actions">
+                            <form method="POST">
+                                <input type="hidden" name="card_id" value="<?= $card['id'] ?>">
+                                <button type="submit" name="remove_card">Remover</button>
+                            </form>
                         </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="main-content">
+            <h2>Extra-Deck (<?= count($extra_deck) ?> /15)</h2>
+            <div class="deck">
+                <?php foreach ($extra_deck as $card): ?>
+                    <div class="card">
+                        <img src="<?= $card['card_images'][0]['image_url'] ?>" alt="<?= $card['name'] ?>">
+                        <div class="card-title"><?= $card['name'] ?></div>
                         <div class="card-actions">
                             <form method="POST">
                                 <input type="hidden" name="card_id" value="<?= $card['id'] ?>">
@@ -212,11 +221,6 @@ $deck = $_SESSION['deck'];
                     <div class="card" id="card-search" onclick="addCard(<?= $card['id'] ?>)">
                         <img src="<?= $card['card_images'][0]['image_url'] ?>" alt="<?= $card['name'] ?>">
                         <div class="card-title"><?= $card['name'] ?></div>
-                        <div class="card-info">
-                            <p><strong>Tipo:</strong> <?= $card['type'] ?></p>
-                            <p><strong>Atributo:</strong> <?= $card['attribute'] ?? 'N/A' ?></p>
-                            <p><strong>Nível:</strong> <?= $card['level'] ?? 'N/A' ?></p>
-                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
